@@ -1,0 +1,11 @@
+{
+  "alert_level": "critical",
+  "classification": "anomalous",
+  "deployment_id": "fuji-reference-usdc",
+  "locked_collateral": 1000000,
+  "pending_amount": 0,
+  "raw_gap": 15000,
+  "reason": "gap is not explained by pending messages, fallback holdings, or multi-hop state",
+  "total_minted_supply": 985000,
+  "unexplained_gap": 15000
+}

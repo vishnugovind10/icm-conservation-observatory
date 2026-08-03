@@ -1,0 +1,12 @@
+{
+  "fallback_holdings": [],
+  "multi_hop_states": [],
+  "observation_summary": {
+    "fallback_holding_count": 0,
+    "multi_hop_state_count": 0,
+    "note": "",
+    "pending_message_count": 0,
+    "source": "none"
+  },
+  "pending_messages": []
+}

@@ -1,0 +1,15 @@
+{
+  "title": "ICM Conservation Status",
+  "schemaVersion": 39,
+  "panels": [
+    {
+      "type": "stat",
+      "title": "Unexplained gap",
+      "targets": [
+        {
+          "expr": "icm_conservation_gap"
+        }
+      ]
+    }
+  ]
+}

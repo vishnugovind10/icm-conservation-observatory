@@ -1,0 +1,17 @@
+groups:
+  - name: icm-conservation
+    rules:
+      - alert: ICMConservationAnomalous
+        expr: icm_conservation_alert{classification="anomalous"} == 1
+        for: 2m
+        labels:
+          severity: critical
+        annotations:
+          summary: "ICTT conservation gap is unexplained"
+      - alert: ICMConservationUnverifiable
+        expr: icm_conservation_alert{classification="unverifiable"} == 1
+        for: 5m
+        labels:
+          severity: warning
+        annotations:
+          summary: "ICTT conservation state cannot be verified"

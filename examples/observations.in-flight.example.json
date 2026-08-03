@@ -1,0 +1,20 @@
+{
+  "source": "operator-supplied pending-message observation",
+  "note": "Example only. Replace with observations derived from Teleporter/ICTT event correlation before using live.",
+  "pending_messages": [
+    {
+      "message_id": "0xexamplepending",
+      "source_chain": "fuji-c-chain",
+      "destination_chain": "fuji-l1-alpha",
+      "amount": 15000,
+      "age_seconds": 75,
+      "status": "sent",
+      "route": [
+        "fuji-c-chain",
+        "fuji-l1-alpha"
+      ]
+    }
+  ],
+  "fallback_holdings": [],
+  "multi_hop_states": []
+}

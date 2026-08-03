@@ -1,0 +1,55 @@
+name: ci
+
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+  workflow_dispatch:
+    inputs:
+      run_live_fuji_smoke:
+        description: "Run the public Fuji RPC smoke test"
+        required: false
+        default: "false"
+        type: choice
+        options:
+          - "false"
+          - "true"
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.11", "3.12"]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Install package
+        run: python -m pip install -e .[api,dev]
+      - name: Run offline tests
+        run: python -m pytest -q
+      - name: Build static demo package
+        run: python scripts/package_static_demo.py
+      - name: Verify fixture readiness fails closed
+        run: |
+          set +e
+          ./scripts/check-live-readiness.sh config/fuji.example.json > readiness.json
+          status=$?
+          set -e
+          test "$status" -eq 1
+          python - <<'PY'
+          import json
+          data = json.load(open("readiness.json", encoding="utf-8"))
+          assert data["ready"] is False
+          failed = {item["name"] for item in data["checks"] if item["status"] == "fail"}
+          assert "contract_addresses_configured" in failed
+          assert "public_demo_url" in failed
+          PY
+      - name: Run live Fuji RPC smoke
+        if: ${{ github.event_name == 'workflow_dispatch' && inputs.run_live_fuji_smoke == 'true' }}
+        env:
+          ICM_LIVE_TESTS: "1"
+        run: python -m pytest -q tests/live/test_fuji_rpc_smoke.py

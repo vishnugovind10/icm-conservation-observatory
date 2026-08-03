@@ -1,0 +1,29 @@
+{
+  "deployment_id": "fuji-reference-usdc",
+  "home_chain": {
+    "chain_id": "fuji-c-chain",
+    "name": "Fuji C-Chain"
+  },
+  "remote_chains": [
+    {
+      "chain_id": "fuji-l1-alpha",
+      "name": "Fuji L1 Alpha"
+    }
+  ],
+  "locked_collateral": 1000000,
+  "minted_supply": {
+    "fuji-l1-alpha": 990000
+  },
+  "pending_messages": [],
+  "fallback_holdings": [
+    {
+      "message_id": "0xfallback01",
+      "chain_id": "fuji-l1-alpha",
+      "recipient": "0x1111111111111111111111111111111111111111",
+      "amount": 10000
+    }
+  ],
+  "multi_hop_states": [],
+  "rpc_healthy": true,
+  "tolerance": 0
+}

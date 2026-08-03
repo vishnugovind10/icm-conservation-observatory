@@ -1,0 +1,21 @@
+{
+  "chains": [
+    {
+      "block_height": 5012345,
+      "chain_id": "fuji-c-chain",
+      "name": "Fuji C-Chain",
+      "rpc_url": ""
+    },
+    {
+      "block_height": 5012339,
+      "chain_id": "fuji-l1-alpha",
+      "name": "Fuji L1 Alpha",
+      "rpc_url": ""
+    }
+  ],
+  "deployment_id": "fuji-reference-usdc",
+  "generated_at": "2026-08-03T00:00:00+00:00",
+  "schema": "icm-conservation-evidence/v1",
+  "stale_threshold_seconds": 180,
+  "tool_version": "0.1.0"
+}

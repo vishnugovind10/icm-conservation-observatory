@@ -1,0 +1,33 @@
+{
+  "network": "fuji",
+  "chains": {
+    "fuji-c-chain": {
+      "name": "Avalanche Fuji C-Chain",
+      "rpc_url": "https://api.avax-test.network/ext/bc/C/rpc",
+      "expected_evm_chain_id": 43113
+    },
+    "fuji-l1-example": {
+      "name": "Fuji Avalanche L1 EVM",
+      "rpc_url": "https://api.avax-test.network/ext/bc/REPLACE_WITH_BLOCKCHAIN_ID/rpc",
+      "expected_evm_chain_id": null
+    }
+  },
+  "deployments": [
+    {
+      "deployment_id": "replace-with-ictt-deployment-id",
+      "home": {
+        "chain_id": "fuji-c-chain",
+        "collateral_token": "0x0000000000000000000000000000000000000000",
+        "lock_contract": "0x0000000000000000000000000000000000000000"
+      },
+      "remotes": [
+        {
+          "chain_id": "fuji-l1-example",
+          "token_contract": "0x0000000000000000000000000000000000000000"
+        }
+      ],
+      "tolerance": 0,
+      "stale_threshold_seconds": 180
+    }
+  ]
+}

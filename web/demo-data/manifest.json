@@ -1,0 +1,11 @@
+{
+  "files": [
+    "EXCEPTIONS.md",
+    "bundle.json",
+    "conservation.json",
+    "correlation.json",
+    "merkle.json"
+  ],
+  "merkle_root": "dcd5cda5723d80e1751aec5c9ced5a0d8bb05d58ed6dbb0a014832f6cd9d7834",
+  "source": "live fuji RPC snapshot"
+}

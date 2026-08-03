@@ -1,0 +1,30 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "icm-conservation-observatory"
+version = "0.1.0"
+description = "Read-only conservation monitoring for Avalanche ICTT lock-and-mint deployments."
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "Apache-2.0" }
+authors = [{ name = "ICM Conservation Observatory contributors" }]
+dependencies = []
+
+[project.optional-dependencies]
+api = ["fastapi>=0.111", "uvicorn>=0.30"]
+dev = ["pytest>=8.0"]
+
+[project.scripts]
+icm-observatory = "icm_observatory.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
+markers = [
+  "live: tests that call public network RPC endpoints",
+]
