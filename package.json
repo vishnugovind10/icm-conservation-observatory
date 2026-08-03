@@ -1,0 +1,22 @@
+{
+  "name": "icm-conservation-observatory-live-demo",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "live:check-env": "node scripts/live/check-fuji-env.mjs",
+    "live:inspect-sdk": "tsx scripts/live/inspect-avalanche-sdk.ts",
+    "live:deploy-ictt": "tsx scripts/live/deploy-fuji-ictt.ts"
+  },
+  "dependencies": {
+    "@avalanche-sdk/client": "0.1.2",
+    "@avalanche-sdk/interchain": "0.1.1-alpha.1",
+    "viem": "2.38.5"
+  },
+  "devDependencies": {
+    "tsx": "^4.20.6",
+    "typescript": "^5.9.3"
+  },
+  "overrides": {
+    "ws": "8.21.1"
+  }
+}
